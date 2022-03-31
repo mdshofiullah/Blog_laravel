@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     private $category;
+    private $categories;
 
     public function index()
     {
@@ -21,8 +22,8 @@ class CategoryController extends Controller
     }
     public function manage()
     {
-        $this->category = Category::orderBy('id', 'desc')->get();
-        return view('admin.category.manage', ['categories' => $this->category]);
+        $this->categories = Category::orderBy('id', 'desc')->get();
+        return view('admin.category.manage', ['categories' => $this->categories]);
     }
     public function edit($id)
     {

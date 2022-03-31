@@ -21,7 +21,7 @@
                         <div class="form-group row mb-4">
                             <label for="horizontal-email-input" class="col-sm-3 col-form-label">Category Description</label>
                             <div class="col-sm-9">
-                                <textarea class="form-control" value="{{ $category->description }}" name="description" id="horizontal-email-input" cols="" rows="6"></textarea>
+                                <textarea class="form-control" name="description" id="horizontal-email-input" cols="" rows="6">{{ $category->description }}</textarea>
                             </div>
                         </div>
                         <div class="form-group row mb-4">
