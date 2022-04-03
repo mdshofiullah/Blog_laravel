@@ -56,8 +56,7 @@
             <div class="card-body">
 
                 <h4 class="card-title text-center font-weight-bolder">Manage Category</h4>
-
-
+                <p class="text-center text-success">{{ Session::get('message') }}</p>
                 <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                     <thead>
                     <tr>

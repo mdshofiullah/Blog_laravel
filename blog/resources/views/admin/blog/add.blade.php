@@ -16,8 +16,8 @@
                         <div class="form-group row mb-4">
                             <label for="horizontal-firstname-input" class="col-sm-3 col-form-label">Category Name</label>
                             <div class="col-sm-9">
-                                <select class="form-control" name="category_id" id="">
-                                    <option value="">---------Select Category Name---------</option>
+                                <select class="form-control" required name="category_id" id="">
+                                    <option value="" disabled selected>---------Select Category Name---------</option>
                                     @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach

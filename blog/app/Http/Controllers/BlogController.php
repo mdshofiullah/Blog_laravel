@@ -29,6 +29,11 @@ class BlogController extends Controller
         $this->blogs = Blog::orderBy('id', 'desc')->get();
         return view('admin.blog.manage', ['blogs' => $this->blogs]);
     }
+    public function detail($id)
+    {
+        $this->blog = Blog::find($id);
+        return view('admin.blog.detail' , ['blog' => $this->blog]);
+    }
 
     public function edit($id)
     {
@@ -42,6 +47,7 @@ class BlogController extends Controller
         Blog::updateBlog($request,$id);
         return redirect('/manage-blog')->with('message', 'Blog Updated Successfully');
     }
+
 
     public function delete($id)
     {

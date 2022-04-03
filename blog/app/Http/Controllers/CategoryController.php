@@ -34,10 +34,16 @@ class CategoryController extends Controller
     public function update(Request $request,$id)
     {
         Category::updateCategory($request,$id);
-        return redirect('/category.manage')->with('message', 'Category Info Updated Successfully');
+        return redirect('/manage-category')->with('message', 'Category Info Updated Successfully');
     }
     public function delete($id)
     {
-        return $id;
+        $this->category = Category::find($id);
+        if (file_exists($this->category->image))
+        {
+            unlink($this->category->image);
+        }
+        $this->category->delete();
+        return redirect('/manage-category')->with('message','Category Deleted Successfully');
     }
 }

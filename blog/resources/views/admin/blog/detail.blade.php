@@ -55,51 +55,37 @@
             <div class="card">
                 <div class="card-body">
 
-                    <h4 class="card-title text-center font-weight-bolder">Manage Blog Form</h4>
+                    <h4 class="card-title text-center font-weight-bolder">Detail Blog Info</h4>
 
-
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap text-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                        <thead>
+                    <table  class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <tr>
-                            <th>Sl No</th>
-                            <th>Category Id</th>
-                            <th>Category Name</th>
-                            <th>Blog Title</th>
-                            <th>Author Name</th>
-                            <th>Image</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>Blog Id</th>
+                            <th>{{ $blog->id }}</th>
                         </tr>
-                        </thead>
-
-                        <tbody>
-                        @foreach($blogs as $blog)
-                            <tr>
-                                <td>{{ $loop->iteration }}</td>
-                                <td>{{ $blog->id }}</td>
-                                <td>{{ isset($blog->category->name) ? $blog->category->name : '' }}</td>
-                                <td>{{ $blog->main_title }}</td>
-{{--                                <td>{{ $blog->author_id }}</td>--}}
-                                <td>{{ isset(\App\Models\User::find($blog->author_id)->name) ? \App\Models\User::find($blog->author_id)->name : '' }}</td>
-                                <td><img src="{{asset($blog->image)}}" alt="" height="100" width="100" /></td>
-                                <td>{{ $blog->status == 1 ? 'Published' : 'Unpublished' }}</td>
-                                <td>
-                                    <a href="{{ route('blog.detail',['id' => $blog->id]) }}" title="View Blog Detail" class="btn btn-info btn-sm">
-                                        <i class="fa fa-book-open"></i>
-                                    </a>
-                                    <a href="" title="Published Blog" class="btn btn-primary btn-sm">
-                                        <i class="fa fa-arrow-up"></i>
-                                    </a>
-                                    <a href="" title="Edit Blog" class="btn btn-success btn-sm">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    <a href="" title="Delete Blog" class="btn btn-danger btn-sm">
-                                        <i class="fa fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
+                        <tr>
+                            <th>Blog Main Title</th>
+                            <th>{{ $blog->main_title }}</th>
+                        </tr>
+                        <tr>
+                            <th>Blog Sub Title</th>
+                            <th>{{ $blog->sub_title }}</th>
+                        </tr>
+                        <tr>
+                            <th>Blog Author</th>
+                            <th>{{ $blog->author_id }}</th>
+                        </tr>
+                        <tr>
+                            <th>Blog Short Description</th>
+                            <th>{{ $blog->short_description }}</th>
+                        </tr>
+                        <tr>
+                            <th>Blog Long Description</th>
+                            <th>{!! $blog->long_description !!}</th>
+                        </tr>
+                        <tr>
+                            <th>Blog Image</th>
+                            <th><img src="{{ asset($blog->image) }}" alt="" height="150" width="150"></th>
+                        </tr>
                     </table>
 
                 </div>
