@@ -20,7 +20,7 @@ use App\Http\Controllers\BlogController;
 //--------------------------------------------Front Panel Routes Start--------------------------------------------
 Route::get('/', [BiztroxController::class, 'index'])->name('home');
 Route::get('/blog-category', [BiztroxController::class, 'category'])->name('blog-category');
-Route::get('/blog-detail', [BiztroxController::class, 'detail'])->name('blog-detail');
+Route::get('/blog-detail/{id}', [BiztroxController::class, 'detail'])->name('blog-detail');
 Route::get('/blog-contact', [BiztroxController::class, 'contact'])->name('blog-contact');
 
 
@@ -44,6 +44,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'),'verified'])
     Route::get('/manage-blog', [BlogController::class, 'manage'])->name('blog.manage');
     Route::get('/detail-blog-info/{id}', [BlogController::class, 'detail'])->name('blog.detail');
     Route::get('/edit-blog/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::get('/update-blog-status/{id}', [BlogController::class, 'updateStatus'])->name('blog.status');
     Route::post('/update-blog/{id}', [BlogController::class, 'update'])->name('blog.update');
     Route::get('/delete-blog/{id}', [BlogController::class, 'delete'])->name('blog.delete');
 

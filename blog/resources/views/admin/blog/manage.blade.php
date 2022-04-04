@@ -56,7 +56,7 @@
                 <div class="card-body">
 
                     <h4 class="card-title text-center font-weight-bolder">Manage Blog Form</h4>
-
+                    <p class="text-center text-success">{{ Session::get('message') }}</p>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap text-center" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -87,10 +87,10 @@
                                     <a href="{{ route('blog.detail',['id' => $blog->id]) }}" title="View Blog Detail" class="btn btn-info btn-sm">
                                         <i class="fa fa-book-open"></i>
                                     </a>
-                                    <a href="" title="Published Blog" class="btn btn-primary btn-sm">
+                                    <a href="{{ route('blog.status',['id' => $blog->id]) }}" title="Published Blog" class="btn btn-primary btn-sm">
                                         <i class="fa fa-arrow-up"></i>
                                     </a>
-                                    <a href="" title="Edit Blog" class="btn btn-success btn-sm">
+                                    <a href="{{ route('blog.edit', ['id' => $blog->id]) }}" title="Edit Blog" class="btn btn-success btn-sm">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     <a href="" title="Delete Blog" class="btn btn-danger btn-sm">

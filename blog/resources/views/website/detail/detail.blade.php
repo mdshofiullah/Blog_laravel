@@ -24,19 +24,15 @@
             <div class="row">
                 <div class="col-lg-8 py-100">
                     <div class="border rounded bg-white">
-                        <img class="img-fluid w-100 rounded-top" src="{{asset('/')}}website/images/blog/blog-single.jpg" alt="blog-image">
+                        <img class="img-fluid w-100 rounded-top" src="{{asset($blog_detail->image)}}" alt="blog-image">
                         <div class="p-4">
-                            <h3>Tips For Business Success 2017: Why To Online</h3>
+                            <h3>{{ $blog_detail->main_title }}</h3>
                             <ul class="list-inline d-block pb-4 border-bottom mb-3">
                                 <li class="list-inline-item text-color">Posted By Admin</li>
                                 <li class="list-inline-item text-color">On 25 November</li>
                                 <li class="list-inline-item text-color">Tag: Advice, Fitness</li>
                             </ul>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                                ex. Commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.
-                            </p>
+                            <p>{{ $blog_detail->short_description }}</p>
                             <div class="bg-gray p-5 rounded mb-60">
                                 <p class="text-dark font-primary mb-30">Excepteur sint occaecat cupidatat non proident sunt culpa officia
                                     deserunt mollit anim id est laborum.Sed ut perspiciatis unde omnis.</p>

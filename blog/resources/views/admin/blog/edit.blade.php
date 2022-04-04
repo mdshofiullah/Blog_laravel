@@ -19,7 +19,7 @@
                                 <select class="form-control" name="category_id" id="">
                                     <option value="{{ $blog->category->id }}">{{ $blog->category->name }}</option>
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}" {{ $blog->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -64,7 +64,7 @@
                         <div class="form-group row justify-content-end">
                             <div class="col-sm-9">
                                 <div>
-                                    <button type="submit" class="btn btn-primary w-md">Create New Blog</button>
+                                    <button type="submit" class="btn btn-primary w-md">Update Blog</button>
                                 </div>
                             </div>
                         </div>

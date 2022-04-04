@@ -11,6 +11,7 @@ class BlogController extends Controller
     private $blog;
     private $blogs;
     private $categories;
+    private $message;
 
     public function index()
     {
@@ -47,10 +48,32 @@ class BlogController extends Controller
         Blog::updateBlog($request,$id);
         return redirect('/manage-blog')->with('message', 'Blog Updated Successfully');
     }
+    public function updateStatus($id)
+    {
+        $this->blog = Blog::find($id);
+        if ($this->blog->status ==1)
+        {
+            $this->blog->status = 0;
+            $this->message = 'Blog Status Info UnPublished Successfully';
+        }
+        else
+        {
+            $this->blog->status = 1;
+            $this->message = 'Blog Status Info Published Successfully';
+        }
+        $this->blog->save();
+        return redirect('/manage-blog')->with('message', $this->message);
+    }
 
 
     public function delete($id)
     {
-        return $id;
+        $this->blog = Blog::find($id);
+        if (file_exists($this->blog->image))
+        {
+            unlink($this->blog->image);
+        }
+        $this->blog->delete();
+        return redirect('/manage-blog')->with('message','Blog Deleted Successfully');
     }
 }
