@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>BIZTROX</title>
+    <title>SHOFI</title>
 
 
     <!-- mobile responsive meta -->
@@ -92,10 +92,25 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link " href="{{ route('blog-category') }}" >
-                                Blog Category
-                            </a>
+                            <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">All Blog Category</a>
+                            <ul class="dropdown-menu">
+                                @foreach($categories as $category)
+                                    <li class="dropdown">
+                                        <a class=" dropdown-item " href="{{ route('blog-category', ['id' => $category->id]) }}" >
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
+                            </ul>
                         </li>
+{{--                        this categories comes from appserviceprovider--}}
+{{--                        @foreach($categories as $category)--}}
+{{--                            <li class="nav-item dropdown">--}}
+{{--                                <a class="nav-link " href="{{ route('blog-category') }}" >--}}
+{{--                                    {{ $category->name }}--}}
+{{--                                </a>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('blog-contact') }}">Contact</a>
                         </li>

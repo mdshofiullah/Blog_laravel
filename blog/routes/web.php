@@ -5,6 +5,7 @@ use App\Http\Controllers\BiztroxController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,11 +20,11 @@ use App\Http\Controllers\BlogController;
 
 //--------------------------------------------Front Panel Routes Start--------------------------------------------
 Route::get('/', [BiztroxController::class, 'index'])->name('home');
-Route::get('/blog-category', [BiztroxController::class, 'category'])->name('blog-category');
+Route::get('/blog-category/{id}', [BiztroxController::class, 'category'])->name('blog-category');
 Route::get('/blog-detail/{id}', [BiztroxController::class, 'detail'])->name('blog-detail');
 Route::get('/blog-contact', [BiztroxController::class, 'contact'])->name('blog-contact');
 
-
+Route::get('/user-login', [AuthController::class, 'index'])->name('user-login');
 //--------------------------------------------Front Panel Routes Ends--------------------------------------------
 
 //--------------------------------------------Admin Panel Routes Start--------------------------------------------
