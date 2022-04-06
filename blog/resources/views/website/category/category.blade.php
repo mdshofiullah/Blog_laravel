@@ -45,6 +45,7 @@
                 @endforeach
                 <!-- blog-item -->
             </div>
+{{--            {{ $blogs->onEachSide(2)->links() }}--}}
         </div>
     </section>
     <!-- /blog -->

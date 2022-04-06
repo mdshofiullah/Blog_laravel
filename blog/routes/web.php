@@ -24,7 +24,16 @@ Route::get('/blog-category/{id}', [BiztroxController::class, 'category'])->name(
 Route::get('/blog-detail/{id}', [BiztroxController::class, 'detail'])->name('blog-detail');
 Route::get('/blog-contact', [BiztroxController::class, 'contact'])->name('blog-contact');
 
-Route::get('/user-login', [AuthController::class, 'index'])->name('user-login');
+//comment
+Route::post('/new-comment/{id}', [BiztroxController::class, 'newComment'])->name('new-comment');
+
+//user login for comment
+Route::get('/user-login/{id?}', [AuthController::class, 'index'])->name('user-login');
+Route::get('/user-register', [AuthController::class, 'register'])->name('user-register');
+//user signup for comment
+Route::post('/new-user-register', [AuthController::class, 'newRegister'])->name('new-user-register');
+
+
 //--------------------------------------------Front Panel Routes Ends--------------------------------------------
 
 //--------------------------------------------Admin Panel Routes Start--------------------------------------------
